@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark overflow-x-hidden">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>力賀汽車 LI-HO AUTO ｜ 嚴選好車 誠信賣車 ｜ CarOk認證中古車高雄旗艦店</title>
+  <meta name="description" content="高雄力賀汽車（CarOk順心優質車商聯盟推薦車商）提供優質中古車買賣、142項專業檢測、CAROK內視鏡檢查、實車實價承諾與三大保證。">
+  <link rel="icon" href="images/liho_logo.jpg" type="image/jpeg">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldLight: '#F3E096',
+              goldDark: '#AA820A',
+              darkBg: '#0B0F17',
+              cardBg: '#131A26',
+              surface: '#1A2332',
+              accent: '#E5C158',
+            }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brand-darkBg text-slate-100 font-sans antialiased selection:bg-brand-gold selection:text-black overflow-x-hidden">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-brand-goldDark via-brand-gold to-brand-goldLight text-slate-950 text-xs sm:text-sm font-semibold py-2 px-4 flex justify-between items-center">
+    <div class="hidden md:flex items-center gap-2">
+      <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
+      <span data-i18n="announcement">全車系雙重權威檢驗（CarOk認證 + 第三方公正報告）</span>
+    </div>
+    <div class="mx-auto md:mx-0 flex items-center gap-2">
+      <span class="bg-black/20 px-2 py-0.5 rounded text-xs font-bold shrink-0" data-i18n="promo_badge">誠信首選</span>
+      <span data-i18n="promo" class="text-xs sm:text-sm">力賀汽車 ‧ 實車實價 ‧ 全車系 CarOk 權威認證</span>
+    </div>
+    <div class="hidden lg:flex items-center gap-4 text-xs">
+      <!-- Language Switcher -->
+      <div class="flex items-center gap-1 bg-black/20 px-2 py-1 rounded-md text-[11px] font-bold border border-black/10">
+        <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+        <button onclick="setLanguage('zh')" id="lang-btn-zh" class="px-2 py-0.5 rounded bg-black text-brand-gold">繁中</button>
+        <span>|</span>
+        <button onclick="setLanguage('en')" id="lang-btn-en" class="px-2 py-0.5 rounded text-slate-800 hover:text-black">EN</button>
+      </div>
+      <a href="tel:076105229" class="hover:underline flex items-center gap-1 font-bold whitespace-nowrap" data-i18n="phone_free">
+        <i data-lucide="phone" class="w-3.5 h-3.5"></i> 賞車專線 07-6105229 / 0932-792-112
+      </a>
+    </div>
+  </div>
+
+  <!-- Streamlined Navbar with Exclusive Metallic Emblem -->
+  <nav class="sticky top-0 z-40 backdrop-blur-md bg-brand-darkBg/90 border-b border-slate-800 transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Exclusive Brand Emblem & Logo -->
+      <a href="#" class="flex items-center gap-3 group shrink-0">
+        <div class="w-12 h-12 rounded-xl overflow-hidden border border-brand-gold/50 shadow-lg shadow-brand-gold/20 group-hover:scale-105 transition-transform duration-300 bg-slate-900">
+          <img src="images/liho_logo.jpg" alt="力賀汽車專屬標誌 LI-HO AUTO" class="w-full h-full object-cover">
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5 whitespace-nowrap">
+            <span class="text-xl sm:text-2xl font-black tracking-wider text-white">力賀汽車</span>
+            <span class="bg-brand-gold/20 text-brand-gold text-[11px] px-2 py-0.5 rounded font-bold border border-brand-gold/40">LI-HO AUTO</span>
+          </div>
+          <span class="text-[11px] text-slate-400 font-medium tracking-widest whitespace-nowrap" data-i18n="brand_slogan">嚴選好車 ‧ 誠信賣車</span>
+        </div>
+      </a>
+
+      <!-- Streamlined Desktop Nav Links -->
+      <div class="hidden md:flex items-center gap-8 font-semibold text-sm text-slate-200">
+        <a href="#inventory" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="car" class="w-4 h-4 text-brand-gold"></i> <span data-i18n="nav_inventory">嚴選車庫</span></a>
+        <a href="#inspection" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="shield-check" class="w-4 h-4 text-brand-gold"></i> <span data-i18n="nav_inspection">142項檢驗</span></a>
+        <a href="#locations" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 whitespace-nowrap"><i data-lucide="map-pin" class="w-4 h-4 text-brand-gold"></i> <span data-i18n="nav_locations">門市據點</span></a>
+        <a href="admin.html" target="_blank" class="hover:text-brand-gold transition-colors flex items-center gap-1.5 text-slate-400 text-xs whitespace-nowrap"><i data-lucide="settings" class="w-3.5 h-3.5"></i> <span data-i18n="nav_admin">車務後台</span></a>
+      </div>
+
+      <!-- Header Action Buttons -->
+      <div class="hidden sm:flex items-center gap-3 shrink-0">
+        <button onclick="openBookingModal()" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldDark text-slate-950 font-black text-sm hover:brightness-110 transition-all flex items-center gap-2 shadow-lg shadow-brand-gold/20 whitespace-nowrap">
+          <i data-lucide="calendar" class="w-4 h-4"></i> <span data-i18n="btn_book">預約賞車</span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-slate-300 hover:text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-surface border-b border-slate-800 px-6 py-6 space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <span class="text-xs text-slate-400">Language 切換語系</span>
+        <div class="flex items-center gap-2 text-xs font-bold">
+          <button onclick="setLanguage('zh')" class="px-3 py-1 rounded bg-brand-gold text-slate-950">繁體中文</button>
+          <button onclick="setLanguage('en')" class="px-3 py-1 rounded bg-slate-800 text-slate-200">English</button>
+        </div>
+      </div>
+
+      <a href="#inventory" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold font-medium py-2" data-i18n="nav_inventory">嚴選車庫</a>
+      <a href="#inspection" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold font-medium py-2" data-i18n="nav_inspection">142項權威檢驗</a>
+      <a href="#locations" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-brand-gold font-medium py-2" data-i18n="nav_locations">門市據點</a>
+      <a href="admin.html" target="_blank" class="block text-slate-300 font-medium py-2 flex items-center gap-1.5"><i data-lucide="settings" class="w-4 h-4 text-brand-gold"></i> <span data-i18n="nav_admin">車務後台系統</span></a>
+      <div class="pt-4 border-t border-slate-800">
+        <button onclick="openBookingModal(); toggleMobileMenu();" class="w-full py-3 rounded-xl bg-brand-gold text-slate-950 font-bold text-center" data-i18n="btn_book">
+          預約現場賞車
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-16">
+    <div class="absolute inset-0 z-0 bg-slate-950">
+      <img src="images/corolla_cross_2021.jpg" alt="力賀汽車 Li-Ho Auto" class="w-full h-full object-cover object-center filter brightness-60 scale-105 transition-transform duration-1000 animate-pulse-slow">
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-darkBg via-brand-darkBg/90 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-darkBg via-transparent to-brand-darkBg/70"></div>
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div class="lg:col-span-7 space-y-6 text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold text-xs font-semibold backdrop-blur-sm">
+          <i data-lucide="award" class="w-4 h-4 shrink-0"></i> <span data-i18n="hero_badge">CarOk 順心優質車商聯盟 ‧ 高雄力賀汽車</span>
+        </div>
+        
+        <h1 class="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight text-white leading-tight break-words">
+          <span data-i18n="hero_title_1">力賀汽車</span> <br>
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-goldLight via-brand-gold to-yellow-500" data-i18n="hero_title_2">
+            嚴選好車 ‧ 誠信賣車
+          </span>
+        </h1>
+        
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed" data-i18n="hero_desc">
+          「力賀（Li-Ho!）」以台灣最熱情的問候，為您把關每一台好車。全車系通過第三方 CarOk 權威認證，142 項透明檢驗、CAROK內視鏡檢查、原廠等級保固與實車實價承諾。
+        </p>
+
+        <!-- Stats Badges -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-slate-800">
+          <div class="bg-brand-cardBg/60 backdrop-blur-md p-3.5 rounded-xl border border-slate-800">
+            <div class="text-2xl font-black text-brand-gold">28 台</div>
+            <div class="text-xs text-slate-400 mt-0.5" data-i18n="stat_cars">現場嚴選在庫車</div>
+          </div>
+          <div class="bg-brand-cardBg/60 backdrop-blur-md p-3.5 rounded-xl border border-slate-800">
+            <div class="text-2xl font-black text-emerald-400">100%</div>
+            <div class="text-xs text-slate-400 mt-0.5" data-i18n="stat_certified">CarOk權威認證</div>
+          </div>
+          <div class="bg-brand-cardBg/60 backdrop-blur-md p-3.5 rounded-xl border border-slate-800">
+            <div class="text-2xl font-black text-brand-gold">三大保證</div>
+            <div class="text-xs text-slate-400 mt-0.5" data-i18n="stat_warranty">無事故泡水調錶</div>
+          </div>
+          <div class="bg-brand-cardBg/60 backdrop-blur-md p-3.5 rounded-xl border border-slate-800">
+            <div class="text-2xl font-black text-amber-400">專人接待</div>
+            <div class="text-xs text-slate-400 mt-0.5" data-i18n="stat_loan">尊榮賞車體驗</div>
+          </div>
+        </div>
+
+        <!-- Quick Search Bar -->
+        <div class="pt-2">
+          <div class="bg-brand-cardBg/90 backdrop-blur-xl p-4 rounded-2xl border border-brand-gold/30 shadow-2xl space-y-3">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span class="font-bold text-slate-200 flex items-center gap-1.5"><i data-lucide="search" class="w-4 h-4 text-brand-gold shrink-0"></i> <span data-i18n="quick_search_title">快速搜尋嚴選車輛</span></span>
+              <span class="text-brand-gold font-medium" data-i18n="transparent_price">實車實價 ‧ 絕不拉抬</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <select id="quick-brand" class="bg-slate-900/90 text-slate-200 text-sm rounded-xl px-3 py-2.5 border border-slate-700 focus:border-brand-gold focus:outline-none">
+                <option value="">所有廠牌 (Toyota, Honda...)</option>
+                <option value="Toyota">Toyota 豐田</option>
+                <option value="Mitsubishi">Mitsubishi 三菱</option>
+                <option value="Subaru">Subaru 速霸陸</option>
+                <option value="Honda">Honda 本田</option>
+                <option value="Nissan">Nissan 日產</option>
+                <option value="Mazda">Mazda 馬自達</option>
+                <option value="Benz">Benz 賓士</option>
+              </select>
+              <select id="quick-type" class="bg-slate-900/90 text-slate-200 text-sm rounded-xl px-3 py-2.5 border border-slate-700 focus:border-brand-gold focus:outline-none">
+                <option value="">所有車型 (SUV, Sedan...)</option>
+                <option value="SUV">休旅車 SUV</option>
+                <option value="Sedan">房車 Sedan</option>
+                <option value="MPV">商務/休旅 MPV</option>
+              </select>
+              <button onclick="handleQuickSearch()" class="bg-gradient-to-r from-brand-gold to-brand-goldDark text-slate-950 font-black text-sm rounded-xl px-4 py-2.5 hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-gold/20 whitespace-nowrap">
+                <i data-lucide="filter" class="w-4 h-4"></i> <span data-i18n="quick_search_btn">搜尋在庫車輛</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Car Card Widget -->
+      <div class="lg:col-span-5 hidden lg:block">
+        <div class="bg-gradient-to-b from-brand-surface/90 to-brand-cardBg/90 backdrop-blur-xl p-6 rounded-3xl border border-brand-gold/30 shadow-2xl relative">
+          <!-- Featured Tag -->
+          <div class="flex justify-between items-center mb-4">
+            <span class="bg-red-600/90 text-white text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-md whitespace-nowrap" data-i18n="featured_tag">
+              本週熱門嚴選
+            </span>
+            <span class="text-xs font-bold text-brand-gold flex items-center gap-1">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> 熱門在庫
+            </span>
+          </div>
+
+          <div class="relative overflow-hidden rounded-2xl mb-4 group bg-slate-900 border border-slate-800">
+            <img src="images/corolla_cross_2021.jpg" alt="Toyota COROLLA CROSS" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500 bg-slate-900">
+            <div class="absolute top-3 left-3 flex gap-2">
+              <span class="bg-black/80 backdrop-blur-md text-brand-gold text-xs px-2.5 py-1 rounded-md font-bold border border-brand-gold/30 whitespace-nowrap">
+                CarOk 認證
+              </span>
+              <span class="bg-emerald-600/90 backdrop-blur-md text-white text-xs px-2.5 py-1 rounded-md font-bold whitespace-nowrap">
+                三大保證
+              </span>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-slate-400">2021 年 ｜ 里程 6.4 萬 km</span>
+              <span class="font-semibold text-emerald-400">非計程車 ‧ 里程保證</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Toyota COROLLA CROSS 1.8</h3>
+            <p class="text-xs text-slate-400">熱門跨界休旅 ‧ TSS 智駕巡航 ‧ LED頭燈 ‧ 盲點偵測</p>
+            
+            <div class="flex items-baseline justify-between pt-2 border-t border-slate-800">
+              <div>
+                <span class="text-xs text-slate-400">力賀實車專案價</span>
+                <div class="text-2xl font-black text-brand-gold">NT$ 56.8 <span class="text-sm font-normal">萬</span></div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs text-emerald-400 font-bold bg-emerald-950/60 px-2 py-1 rounded border border-emerald-500/30">現場在庫</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2 pt-2">
+              <button onclick="viewCarDetail('corolla_cross_2021')" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 whitespace-nowrap">
+                <i data-lucide="eye" class="w-3.5 h-3.5"></i> 查看完整報告
+              </button>
+              <button onclick="openBookingModal('Toyota COROLLA CROSS')" class="w-full py-2.5 rounded-xl bg-brand-gold hover:bg-brand-goldLight text-slate-950 text-xs font-black transition-all flex items-center justify-center gap-1.5 whitespace-nowrap" data-i18n="btn_book">
+                預約現場賞車
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Car Inventory (力賀嚴選車庫) -->
+  <section id="inventory" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-semibold border border-brand-gold/30 mb-3">
+            <i data-lucide="car" class="w-4 h-4 shrink-0"></i> 高雄門市實車在庫 ‧ 隨時賞車
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="inventory_title">力賀嚴選車庫 (Li-Ho Verified Garage)</h2>
+          <p class="text-slate-400 text-sm mt-1" data-i18n="inventory_desc">所有車輛均為高雄門市現場實車拍攝，通過 142 項專業檢測與 CarOk 權威認證</p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap gap-2 bg-slate-900/80 p-1.5 rounded-xl border border-slate-800" id="filter-tabs">
+          <button onclick="filterCars('all')" class="tab-btn active px-4 py-2 rounded-lg text-xs font-bold transition-all bg-brand-gold text-slate-950 whitespace-nowrap" data-i18n="tab_all">全部車款</button>
+          <button onclick="filterCars('Toyota')" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white whitespace-nowrap">Toyota 豐田</button>
+          <button onclick="filterCars('Mitsubishi')" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white whitespace-nowrap">Mitsubishi 三菱</button>
+          <button onclick="filterCars('Subaru')" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white whitespace-nowrap">Subaru 速霸陸</button>
+          <button onclick="filterCars('Honda')" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white whitespace-nowrap">Honda 本田</button>
+          <button onclick="filterCars('Benz')" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white whitespace-nowrap">Benz 賓士</button>
+          <button onclick="filterCars('SUV')" class="tab-btn px-4 py-2 rounded-lg text-xs font-bold transition-all text-slate-300 hover:text-white whitespace-nowrap">休旅車 SUV</button>
+        </div>
+      </div>
+
+      <!-- Car Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="car-grid">
+        <!-- Car items generated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 142 Inspection & Quality Guarantee -->
+  <section id="inspection" class="py-20 bg-brand-surface/40 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 relative">
+          <div class="rounded-3xl overflow-hidden border border-brand-gold/30 shadow-2xl relative group bg-slate-900">
+            <img src="images/inspection_tech.jpg" alt="力賀汽車 142項嚴選檢驗" class="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700 bg-slate-900">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-darkBg via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6 bg-brand-cardBg/90 backdrop-blur-md p-4 rounded-2xl border border-slate-800">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-10 rounded-full bg-brand-gold text-slate-950 flex items-center justify-center font-black text-xs px-1 shrink-0">
+                  CarOk
+                </div>
+                <div>
+                  <h4 class="text-white font-bold text-sm">CarOk 順心優質車商聯盟雙重權威認證</h4>
+                  <p class="text-slate-400 text-xs">專業技師數十年經驗 + CAROK內視鏡檢查精準剖析</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-semibold border border-brand-gold/30">
+            <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i> 買車最安心的誠信保證
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight" data-i18n="inspection_title">
+            142 項透明車況檢驗 ｜ 力賀四大安心品質保證
+          </h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            我們深知中古車買賣的痛點。高雄力賀汽車立下誠信約定，從車骨架結構、引擎變速箱到電路電腦，全數公開透明檢驗報告。
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="bg-brand-cardBg/80 p-4 rounded-2xl border border-slate-800">
+              <div class="text-brand-gold font-bold text-base mb-1 flex items-center gap-2">
+                <i data-lucide="shield-x" class="w-5 h-5 text-red-400 shrink-0"></i> 絕無重大事故
+              </div>
+              <p class="text-slate-400 text-xs">大樑主結構零修復，保證車輛剛性與碰撞安全。</p>
+            </div>
+            <div class="bg-brand-cardBg/80 p-4 rounded-2xl border border-slate-800">
+              <div class="text-brand-gold font-bold text-base mb-1 flex items-center gap-2">
+                <i data-lucide="droplets" class="w-5 h-5 text-blue-400 shrink-0"></i> 絕無泡水車
+              </div>
+              <p class="text-slate-400 text-xs">引擎室與地毯線路完整清查，若有泡水原價退車。</p>
+            </div>
+            <div class="bg-brand-cardBg/80 p-4 rounded-2xl border border-slate-800">
+              <div class="text-brand-gold font-bold text-base mb-1 flex items-center gap-2">
+                <i data-lucide="gauge" class="w-5 h-5 text-amber-400 shrink-0"></i> 絕無調整里程
+              </div>
+              <p class="text-slate-400 text-xs">配合原廠保養紀錄查驗，里程如有不實原價購回。</p>
+            </div>
+            <div class="bg-brand-cardBg/80 p-4 rounded-2xl border border-slate-800 border-brand-gold/40 shadow-lg">
+              <div class="text-brand-gold font-bold text-base mb-1 flex items-center gap-2">
+                <i data-lucide="microscope" class="w-5 h-5 text-emerald-400 shrink-0"></i> CAROK內視鏡檢查
+              </div>
+              <p class="text-slate-400 text-xs">採用高科技電子內視鏡，精準檢視引擎內部汽缸與氣門積碳狀況！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showroom Locations -->
+  <section id="locations" class="py-20 bg-brand-surface/40 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold text-xs font-semibold border border-brand-gold/30">
+          <i data-lucide="map-pin" class="w-4 h-4 shrink-0"></i> 實體展示門市
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="locations_title">力賀汽車 展示與服務中心</h2>
+        <p class="text-slate-400 text-sm">誠摯邀請您親臨高雄梓官門市，享受專屬賞車與親切接待服務。</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto bg-brand-cardBg p-8 rounded-3xl border border-brand-gold/40 shadow-2xl space-y-6 overflow-hidden">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800 flex-wrap gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl overflow-hidden border border-brand-gold/50 shrink-0 bg-slate-900">
+              <img src="images/liho_logo.jpg" alt="力賀汽車 LI-HO AUTO" class="w-full h-full object-cover">
+            </div>
+            <div>
+              <span class="text-brand-gold font-bold text-xs bg-brand-gold/10 px-2.5 py-1 rounded-md border border-brand-gold/30">CarOk 聯盟推薦車商</span>
+              <h3 class="text-2xl font-black text-white mt-1">力賀汽車 (Li-Ho Auto)</h3>
+            </div>
+          </div>
+          <span class="text-xs text-emerald-400 font-bold bg-emerald-950/80 px-3 py-1.5 rounded-full border border-emerald-500/30 whitespace-nowrap">營業中 09:00 - 20:00</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
+          <div class="space-y-3">
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="user" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>
+              <div>
+                <span class="text-xs text-slate-400 block">負責人 / 聯絡人</span>
+                <span class="font-bold text-white">陳力裫老闆</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="phone-call" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>
+              <div>
+                <span class="text-xs text-slate-400 block">賞車熱線 / 市話</span>
+                <span class="font-bold text-white">07-6105229 / 0932-792-112</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="map-pin" class="w-5 h-5 text-brand-gold shrink-0 mt-0.5"></i>
+              <div>
+                <span class="text-xs text-slate-400 block">展示門市地址</span>
+                <span class="font-bold text-white">高雄市梓官區大舍南路 251-1 號</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div>
+                <span class="text-xs text-slate-400 block">權威認證保障</span>
+                <span class="font-bold text-emerald-400">CarOk 順心嚴選 ‧ CAROK內視鏡檢查</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row gap-3">
+          <a target="_blank" href="https://www.google.com.tw/maps/place/高雄市梓官區大舍南路251-1號" class="flex-1 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-all flex items-center justify-center gap-2 border border-slate-700 whitespace-nowrap">
+            <i data-lucide="navigation" class="w-4 h-4 text-brand-gold"></i> 開啟 Google 地圖導航
+          </a>
+          <button onclick="openBookingModal('高雄梓官門市賞車')" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldDark text-slate-950 font-black text-xs hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg whitespace-nowrap">
+            <i data-lucide="calendar" class="w-4 h-4"></i> 預約專人現場接待
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-brand-darkBg text-slate-400 border-t border-slate-800 pt-12 pb-24 sm:pb-12 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center sm:text-left">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl overflow-hidden border border-brand-gold/50 shrink-0 bg-slate-900">
+            <img src="images/liho_logo.jpg" alt="LI-HO AUTO" class="w-full h-full object-cover">
+          </div>
+          <span class="text-xl font-black text-white tracking-wider whitespace-nowrap">力賀汽車 LI-HO AUTO</span>
+        </div>
+        <div class="flex items-center gap-6 text-xs font-medium text-slate-300">
+          <a href="#inventory" class="hover:text-brand-gold whitespace-nowrap" data-i18n="nav_inventory">嚴選車庫</a>
+          <a href="#inspection" class="hover:text-brand-gold whitespace-nowrap" data-i18n="nav_inspection">142項檢驗</a>
+          <a href="#locations" class="hover:text-brand-gold whitespace-nowrap" data-i18n="nav_locations">門市據點</a>
+          <a href="admin.html" target="_blank" class="text-brand-gold font-bold flex items-center gap-1 whitespace-nowrap"><i data-lucide="settings" class="w-3.5 h-3.5"></i> <span data-i18n="nav_admin">車務後台</span></a>
+        </div>
+      </div>
+
+      <div class="text-center text-xs text-slate-500 space-y-2">
+        <p data-i18n="footer_copy">© 2026 力賀汽車 (LI-HO AUTO) 版權所有 ｜ CarOk 順心優質車商聯盟推薦車商</p>
+        <p class="text-[11px] text-slate-600">門市地址：高雄市梓官區大舍南路251-1號 ｜ 服務電話：07-6105229 / 0932-792-112 (陳力裫)</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Bottom Quick Action Bar -->
+  <div class="fixed bottom-0 left-0 right-0 z-40 bg-slate-950/95 backdrop-blur-lg border-t border-brand-gold/30 p-3 sm:p-4 shadow-2xl">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      <div class="hidden sm:flex items-center gap-3">
+        <span class="w-3 h-3 rounded-full bg-emerald-500 animate-ping"></span>
+        <span class="text-xs text-slate-200 font-semibold whitespace-nowrap" data-i18n="sticky_online">高雄門市服務中 07-6105229</span>
+      </div>
+      <div class="flex items-center gap-2 sm:gap-4 w-full sm:w-auto">
+        <a href="tel:0932792112" class="flex-1 sm:flex-none px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap">
+          <i data-lucide="phone-call" class="w-4 h-4 text-brand-gold"></i> <span data-i18n="btn_call">直撥老闆電話</span>
+        </a>
+        <button onclick="openBookingModal()" class="flex-1 sm:flex-none px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-gold via-brand-goldLight to-brand-gold text-slate-950 text-xs font-black transition-all flex items-center justify-center gap-1.5 shadow-lg shadow-brand-gold/20 whitespace-nowrap">
+          <i data-lucide="calendar" class="w-4 h-4"></i> <span data-i18n="btn_book">預約現場賞車</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Car Detail Modal -->
+  <div id="detail-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-brand-cardBg w-full max-w-4xl rounded-3xl border border-brand-gold/40 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+        <div id="modal-title-area">
+          <!-- Filled by JS -->
+        </div>
+        <button onclick="closeDetailModal()" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-6" id="modal-body">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-brand-cardBg w-full max-w-lg rounded-3xl border border-brand-gold/40 shadow-2xl overflow-hidden">
+      <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+        <div>
+          <h3 class="text-lg font-bold text-white whitespace-nowrap">預約尊榮現場賞車 / 試駕</h3>
+          <p class="text-xs text-brand-gold whitespace-nowrap">高雄梓官門市 ‧ 陳力裫老闆專人接待</p>
+        </div>
+        <button onclick="closeBookingModal()" class="text-slate-400 hover:text-white p-1">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <form onsubmit="handleBookingSubmit(event)" class="p-6 space-y-4">
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">您的姓名 *</label>
+          <input type="text" required placeholder="例如：王小明 先生/小姐" class="w-full bg-slate-900 text-slate-200 text-sm rounded-xl p-3 border border-slate-800 focus:border-brand-gold focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">聯絡電話 *</label>
+          <input type="tel" required placeholder="例如：0912-345-678" class="w-full bg-slate-900 text-slate-200 text-sm rounded-xl p-3 border border-slate-800 focus:border-brand-gold focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">預約賞車門市據點</label>
+          <select class="w-full bg-slate-900 text-slate-200 text-sm rounded-xl p-3 border border-slate-800 focus:border-brand-gold focus:outline-none">
+            <option>高雄梓官門市 (高雄市梓官區大舍南路251-1號)</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">想看的目標車款 (選填)</label>
+          <input type="text" id="booking-target-car" placeholder="例如：Toyota COROLLA CROSS" class="w-full bg-slate-900 text-slate-200 text-sm rounded-xl p-3 border border-slate-800 focus:border-brand-gold focus:outline-none">
+        </div>
+        <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldDark text-slate-950 font-black text-sm hover:brightness-110 transition-all shadow-lg whitespace-nowrap">
+          送出預約通知
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

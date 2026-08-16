@@ -732,11 +732,9 @@ async function loadLatestInventoryJson() {
     if (resp.ok) {
       const remoteData = await resp.json();
       if (remoteData && Array.isArray(remoteData) && remoteData.length > 0) {
-        // Only override if user hasn't custom edited in localStorage
-        if (!localStorage.getItem('liho_cars_data')) {
-          saveStoredCars(remoteData);
-          renderInventory(remoteData);
-        }
+        // 每日爬蟲資料一律為準；localStorage 只作為離線／fetch 失敗時的備援快取
+        saveStoredCars(remoteData);
+        renderInventory(remoteData);
       }
     }
   } catch (e) {

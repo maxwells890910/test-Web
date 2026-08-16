@@ -2,18 +2,31 @@
 # -*- coding: utf-8 -*-
 """
 Li-Ho Auto (力賀汽車) CarOk Store Auto-Sync Crawler for GitHub Actions
-Scrapes http://www.car-ok.com.tw/area/carStoreInfo/9E12 daily, extracts exact mileages,
-cash prices, specifications, and images, then updates app.js automatically.
+Scrapes http://www.car-ok.com.tw/area/carStoreInfo/9E12 daily, extracts exact
+mileages, cash prices and specifications, downloads each car's photo into
+images/cars/, then writes data/inventory.json (this script does NOT touch app.js).
+
+Data-honesty rules:
+- Required fields (brand / year / price): if extraction fails, the car is
+  SKIPPED with a warning — never filled with fabricated defaults.
+- Optional fields fall back to the honest placeholder 門市洽詢.
+- All scraped text is HTML-escaped before entering the JSON (the front end
+  renders these fields with innerHTML).
 """
 
 import os
 import re
+import html
 import json
 import urllib.request
+from urllib.parse import quote
 
 STORE_URL = "http://www.car-ok.com.tw/area/carStoreInfo/9E12"
-BASE_URL = "http://www.car-ok.com.tw"
+BASE_URL = "http://www.car-ok.com.tw"  # 該站 https 憑證已過期，僅 http 可用
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'}
+IMAGE_DIR = "images/cars"
+PLACEHOLDER_IMAGE = "images/corolla_cross_2021.jpg"
+MAX_IMAGE_BYTES = 3 * 1024 * 1024  # 單檔超過 3MB 不入 repo
 
 def fetch_html(url):
     try:
@@ -24,9 +37,19 @@ def fetch_html(url):
         print(f"[Error] Fetching {url}: {e}")
         return ""
 
+def clean_text(raw):
+    """Decode entities, collapse whitespace, then escape for innerHTML safety."""
+    text = html.unescape(raw)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return html.escape(text, quote=True)
+
+def extract_field(pattern, page_html):
+    m = re.search(pattern, page_html)
+    return clean_text(m.group(1)) if m else None
+
 def get_store_car_links():
-    html = fetch_html(STORE_URL)
-    links = re.findall(r'href=["\'](/buy/carInfo/[A-Za-z0-9]+)["\']', html)
+    page_html = fetch_html(STORE_URL)
+    links = re.findall(r'href=["\'](/buy/carInfo/[A-Za-z0-9]+)["\']', page_html)
     # Deduplicate while preserving order
     seen = set()
     unique_links = []
@@ -37,70 +60,107 @@ def get_store_car_links():
     print(f"[Info] Found {len(unique_links)} vehicles in CarOk Store.")
     return unique_links
 
-def parse_car_detail(url):
-    car_id = url.split('/')[-1].lower()
-    html = fetch_html(url)
-    if not html:
+def download_image(image_url, car_id):
+    """Download the car photo into IMAGE_DIR; return the relative path, or None."""
+    try:
+        req = urllib.request.Request(image_url, headers=HEADERS)
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = resp.read()
+        if not data:
+            print(f"[Warning] Empty image for {car_id}, using placeholder.")
+            return None
+        if len(data) > MAX_IMAGE_BYTES:
+            print(f"[Warning] Image for {car_id} is {len(data)} bytes (>3MB), using placeholder.")
+            return None
+        os.makedirs(IMAGE_DIR, exist_ok=True)
+        local_path = f"{IMAGE_DIR}/{car_id}.jpg"
+        with open(local_path, "wb") as f:
+            f.write(data)
+        return local_path
+    except Exception as e:
+        print(f"[Error] Downloading image for {car_id}: {e}")
         return None
 
-    # Title
-    title_match = re.search(r'<title>(.*?)</title>', html, re.IGNORECASE)
-    title_raw = title_match.group(1).replace('CarOK順心優質車商聯盟/順心嚴選中古車', '').strip() if title_match else car_id
+def parse_car_detail(url):
+    car_id = url.split('/')[-1].lower()
+    page_html = fetch_html(url)
+    if not page_html:
+        return None
 
-    # Brand, Type, Year, Mileage from specs table & hidden fields
-    brand_match = re.search(r'廠牌：(.*?)\s*<br>', html)
-    brand = brand_match.group(1).strip() if brand_match else 'Toyota'
-    if '/' in brand:
+    # ---- Required fields: fail => skip this car (no fabricated defaults) ----
+    brand = extract_field(r'廠牌：(.*?)\s*<br>', page_html)
+    if brand and '/' in brand:
         brand = brand.split('/')[0].strip()
 
-    type_match = re.search(r'車種：(.*?)\s*<br>', html)
-    type_str = type_match.group(1).strip() if type_match else 'SUV'
-    car_type = 'SUV' if '休旅' in type_str else ('MPV' if '商務' in type_str or '廂' in type_str or '貨' in type_str else 'Sedan')
+    year_m = re.search(r'年份：(\d+)', page_html)
+    year = int(year_m.group(1)) if year_m else None
 
-    year_match = re.search(r'年份：(\d+)', html)
-    year = int(year_match.group(1)) if year_match else 2020
+    price_m = re.search(r'class="txt5-28">\s*([\d\.]+)\s*萬', page_html)
+    price = float(price_m.group(1)) if price_m else None
 
-    # Price
-    price_match = re.search(r'class="txt5-28">\s*([\d\.]+)\s*萬', html)
-    price = float(price_match.group(1)) if price_match else 0.0
+    missing = [name for name, val in
+               [("廠牌", brand), ("年份", year), ("車價", price)] if not val]
+    if missing:
+        print(f"[Warning] {car_id}: missing required field(s) {missing}, skipped.")
+        return None
 
-    # Exact Mileage from hidden field <div id="MILES">64000</div>
-    miles_match = re.search(r'<div id="MILES">(\d+)</div>', html)
-    if miles_match:
-        miles = int(miles_match.group(1))
+    # ---- Optional fields: fail => honest placeholder, never invented specs ----
+    # 車名組合：廠牌＋車型＋年份（車型欄位缺漏時退為 廠牌＋年份，仍是真實資料）
+    model = extract_field(r'車型：(.*?)\s*<br>', page_html)
+    title = f"{brand} {model} {year}年" if model else f"{brand} {year}年"
+
+    type_str = extract_field(r'車種：(.*?)\s*<br>', page_html) or ''
+    if '休旅' in type_str:
+        car_type = 'SUV'
+    elif '商務' in type_str or '廂' in type_str or '貨' in type_str:
+        car_type = 'MPV'
+    elif type_str:
+        car_type = 'Sedan'
+    else:
+        car_type = ''  # 車種缺漏就不硬給分類
+
+    # Exact mileage from hidden field <div id="MILES">64000</div>
+    miles_m = re.search(r'<div id="MILES">(\d+)</div>', page_html)
+    if miles_m:
+        miles = int(miles_m.group(1))
         if miles >= 10000:
-            wan = round(miles / 10000, 1)
-            mileage = f"{wan} 萬公里 ({miles:,} km)"
+            mileage = f"{round(miles / 10000, 1)} 萬公里 ({miles:,} km)"
         else:
             mileage = f"{miles:,} 公里"
     else:
-        mileage = "門市實測揭露"
+        mileage = "門市洽詢"
 
-    # Engine & Transmission
-    cc_match = re.search(r'排氣量：(\d+)', html)
-    cc = cc_match.group(1) if cc_match else '1800'
-    engine = f"{round(int(cc)/1000, 1)}L ({cc}.cc)" if cc.isdigit() else "自然進氣"
+    cc = extract_field(r'排氣量：(\d+)', page_html)
+    engine = f"{round(int(cc) / 1000, 1)}L ({cc}.cc)" if cc and cc.isdigit() else "門市洽詢"
 
-    trans_match = re.search(r'排檔方式：(.*?)\s*<br>', html)
-    transmission = trans_match.group(1).strip() if trans_match else '手自排'
+    transmission = extract_field(r'排檔方式：(.*?)\s*<br>', page_html) or "門市洽詢"
 
-    # Image
-    img_match = re.search(r'src=["\'](/public/upload/car/I[^"\']+\.(?:jpeg|jpg|png))', html, re.IGNORECASE)
-    image_url = BASE_URL + img_match.group(1) if img_match else "images/corolla_cross_2021.jpg"
+    # ---- Car photo: download into the repo (the source site has no usable
+    # https, so hot-linking breaks on GitHub Pages / mixed content) ----
+    img_m = re.search(
+        r'["\'](/public/upload/car/[^"\']+?\.(?:jpeg|jpg|png))(?:\?[^"\']*)?["\']',
+        page_html, re.IGNORECASE)
+    image = None
+    if img_m:
+        # 部分照片檔名含空格（車身號碼），必須先做百分比編碼才能請求
+        image = download_image(BASE_URL + quote(img_m.group(1)), car_id)
+    else:
+        print(f"[Warning] {car_id}: no photo found on page.")
+    if not image:
+        image = PLACEHOLDER_IMAGE
 
-    # Construct object
     return {
         "id": car_id,
-        "title": title_raw if len(title_raw) > 5 else f"{brand} {year}年 優質嚴選車",
+        "title": title,
         "brand": brand,
         "type": car_type,
         "year": year,
         "mileage": mileage,
         "price": price,
         "engine": engine,
-        "power": "標準馬力 ‧ 動能穩定",
+        "power": "門市洽詢",
         "transmission": transmission,
-        "image": image_url,
+        "image": image,
         "certified": "CarOk 認證",
         "guarantee": "三大保證 ‧ 實車實價",
         "tags": ["實車實價", "非計程車", "里程保證"],
@@ -110,6 +170,17 @@ def parse_car_detail(url):
             {"item": "CAROK 內視鏡檢查", "status": "引擎內部無積碳極乾淨"}
         ]
     }
+
+def clean_orphan_images(inventory):
+    """Remove images/cars/ files no longer referenced by the current inventory."""
+    if not os.path.isdir(IMAGE_DIR):
+        return
+    keep = {c["image"] for c in inventory if c["image"].startswith(f"{IMAGE_DIR}/")}
+    for fname in sorted(os.listdir(IMAGE_DIR)):
+        rel = f"{IMAGE_DIR}/{fname}"
+        if rel not in keep:
+            os.remove(rel)
+            print(f"[Info] Removed orphan image {rel}")
 
 def run_sync():
     print("[Start] Running Li-Ho Auto CarOk Store Inventory Sync...")
@@ -124,13 +195,21 @@ def run_sync():
         if data:
             inventory.append(data)
 
-    print(f"[Success] Parsed {len(inventory)} cars successfully.")
+    if not inventory:
+        # 連結有、但每一筆都解析失敗＝來源站大概率改版了。
+        # 不寫檔，保住 repo 裡上一次的好資料，並以非零退出讓 workflow 變紅。
+        print("[Error] Links found but 0 cars parsed — site layout may have changed. "
+              "Keeping previous inventory.json untouched.")
+        raise SystemExit(1)
 
-    # Save to data/inventory.json
+    print(f"[Success] Parsed {len(inventory)} cars successfully "
+          f"({len(links) - len(inventory)} skipped).")
+
     os.makedirs("data", exist_ok=True)
     with open("data/inventory.json", "w", encoding="utf-8") as f:
         json.dump(inventory, f, ensure_ascii=False, indent=2)
 
+    clean_orphan_images(inventory)
     print("[Done] inventory.json updated successfully.")
 
 if __name__ == "__main__":

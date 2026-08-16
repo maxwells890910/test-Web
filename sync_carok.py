@@ -18,8 +18,9 @@ import os
 import re
 import html
 import json
+import time
 import urllib.request
-from urllib.parse import quote
+from urllib.parse import quote, unquote
 
 STORE_URL = "http://www.car-ok.com.tw/area/carStoreInfo/9E12"
 BASE_URL = "http://www.car-ok.com.tw"  # 該站 https 憑證已過期，僅 http 可用
@@ -72,6 +73,10 @@ def download_image(image_url, car_id):
         if len(data) > MAX_IMAGE_BYTES:
             print(f"[Warning] Image for {car_id} is {len(data)} bytes (>3MB), using placeholder.")
             return None
+        # 老站可能用 200 回 HTML 錯誤頁——驗檔頭，不是圖就不收
+        if not (data.startswith(b'\xff\xd8\xff') or data.startswith(b'\x89PNG')):
+            print(f"[Warning] Image for {car_id} is not JPEG/PNG (starts {data[:8]!r}), skipped.")
+            return None
         os.makedirs(IMAGE_DIR, exist_ok=True)
         local_path = f"{IMAGE_DIR}/{car_id}.jpg"
         with open(local_path, "wb") as f:
@@ -88,7 +93,8 @@ def parse_car_detail(url):
         return None
 
     # ---- Required fields: fail => skip this car (no fabricated defaults) ----
-    brand = extract_field(r'廠牌：(.*?)\s*<br>', page_html)
+    # 註：<br 不寫閉合，容忍 <br>／<br/>／<br /> 排版變化
+    brand = extract_field(r'廠牌：(.*?)\s*<br', page_html)
     if brand and '/' in brand:
         brand = brand.split('/')[0].strip()
 
@@ -106,10 +112,10 @@ def parse_car_detail(url):
 
     # ---- Optional fields: fail => honest placeholder, never invented specs ----
     # 車名組合：廠牌＋車型＋年份（車型欄位缺漏時退為 廠牌＋年份，仍是真實資料）
-    model = extract_field(r'車型：(.*?)\s*<br>', page_html)
+    model = extract_field(r'車型：(.*?)\s*<br', page_html)
     title = f"{brand} {model} {year}年" if model else f"{brand} {year}年"
 
-    type_str = extract_field(r'車種：(.*?)\s*<br>', page_html) or ''
+    type_str = extract_field(r'車種：(.*?)\s*<br', page_html) or ''
     if '休旅' in type_str:
         car_type = 'SUV'
     elif '商務' in type_str or '廂' in type_str or '貨' in type_str:
@@ -133,7 +139,7 @@ def parse_car_detail(url):
     cc = extract_field(r'排氣量：(\d+)', page_html)
     engine = f"{round(int(cc) / 1000, 1)}L ({cc}.cc)" if cc and cc.isdigit() else "門市洽詢"
 
-    transmission = extract_field(r'排檔方式：(.*?)\s*<br>', page_html) or "門市洽詢"
+    transmission = extract_field(r'排檔方式：(.*?)\s*<br', page_html) or "門市洽詢"
 
     # ---- Car photo: download into the repo (the source site has no usable
     # https, so hot-linking breaks on GitHub Pages / mixed content) ----
@@ -142,12 +148,20 @@ def parse_car_detail(url):
         page_html, re.IGNORECASE)
     image = None
     if img_m:
-        # 部分照片檔名含空格（車身號碼），必須先做百分比編碼才能請求
-        image = download_image(BASE_URL + quote(img_m.group(1)), car_id)
+        # 部分照片檔名含空格（車身號碼），要先百分比編碼；
+        # 先 unquote 再 quote＝等冪，來源站哪天改成預編碼 URL 也不會雙重編碼
+        image = download_image(BASE_URL + quote(unquote(img_m.group(1))), car_id)
     else:
         print(f"[Warning] {car_id}: no photo found on page.")
     if not image:
-        image = PLACEHOLDER_IMAGE
+        # 下載失敗但上一次的好圖還在 checkout 裡→沿用，
+        # 不拿佔位圖冒充（暫時性網路故障不該毀掉既有照片）
+        previous = f"{IMAGE_DIR}/{car_id}.jpg"
+        if os.path.isfile(previous):
+            print(f"[Info] {car_id}: reusing previous local photo.")
+            image = previous
+        else:
+            image = PLACEHOLDER_IMAGE
 
     return {
         "id": car_id,
@@ -178,6 +192,8 @@ def clean_orphan_images(inventory):
     keep = {c["image"] for c in inventory if c["image"].startswith(f"{IMAGE_DIR}/")}
     for fname in sorted(os.listdir(IMAGE_DIR)):
         rel = f"{IMAGE_DIR}/{fname}"
+        if not os.path.isfile(rel):
+            continue
         if rel not in keep:
             os.remove(rel)
             print(f"[Info] Removed orphan image {rel}")
@@ -186,20 +202,23 @@ def run_sync():
     print("[Start] Running Li-Ho Auto CarOk Store Inventory Sync...")
     links = get_store_car_links()
     if not links:
-        print("[Warning] No links fetched, skipping update.")
-        return
+        # 列表頁改版或連不上——綠燈會變成無聲凍結，必須紅燈讓人看見
+        print("[Error] 0 links fetched — store page unreachable or layout changed. "
+              "Keeping previous inventory.json untouched.")
+        raise SystemExit(1)
 
     inventory = []
     for link in links:
         data = parse_car_detail(link)
         if data:
             inventory.append(data)
+        time.sleep(1)  # 對來源站的禮貌間隔
 
-    if not inventory:
-        # 連結有、但每一筆都解析失敗＝來源站大概率改版了。
-        # 不寫檔，保住 repo 裡上一次的好資料，並以非零退出讓 workflow 變紅。
-        print("[Error] Links found but 0 cars parsed — site layout may have changed. "
-              "Keeping previous inventory.json untouched.")
+    if len(inventory) < max(1, len(links) // 2):
+        # 低水位護欄：連結有 N 台、成功不到一半＝來源站大概率改版或大範圍故障。
+        # 不寫檔、不刪圖，保住 repo 裡上一次的好資料，非零退出讓 workflow 變紅。
+        print(f"[Error] Only {len(inventory)}/{len(links)} cars parsed — "
+              "site layout may have changed. Keeping previous inventory.json untouched.")
         raise SystemExit(1)
 
     print(f"[Success] Parsed {len(inventory)} cars successfully "

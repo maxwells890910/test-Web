@@ -824,7 +824,7 @@ function renderInventory(cars) {
           <button onclick="viewCarDetail('${car.id}')" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1 whitespace-nowrap">
             <i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-gold"></i> ${isEn ? 'Report' : '檢驗報告'}
           </button>
-          <button onclick="openBookingModal('${car.title}')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldDark hover:brightness-110 text-slate-950 text-xs font-bold transition-all flex items-center justify-center gap-1 whitespace-nowrap">
+          <button onclick="openBookingModalById('${car.id}')" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldDark hover:brightness-110 text-slate-950 text-xs font-bold transition-all flex items-center justify-center gap-1 whitespace-nowrap">
             <i data-lucide="calendar" class="w-3.5 h-3.5"></i> ${isEn ? 'Book Drive' : '預約賞車'}
           </button>
         </div>
@@ -920,7 +920,7 @@ function viewCarDetail(carId) {
           </div>
         </div>
 
-        <button onclick="closeDetailModal(); openBookingModal('${car.title}');" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldDark text-slate-950 font-bold text-sm whitespace-nowrap">
+        <button onclick="closeDetailModal(); openBookingModalById('${car.id}');" class="w-full py-3 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldDark text-slate-950 font-bold text-sm whitespace-nowrap">
           ${isEn ? 'Book Test Drive Now' : '預約現場實車試駕'}
         </button>
       </div>
@@ -955,6 +955,13 @@ function closeDetailModal() {
 }
 
 // Booking Modal Logic
+// 用車輛 id 查標題再開預約視窗——id 只含安全字元；
+// 爬蟲來的 title 不可內插進 inline onclick（含引號會壞、且屬性解碼會還原跳脫）
+function openBookingModalById(carId) {
+  const car = getStoredCars().find(c => c.id === carId);
+  openBookingModal(car ? car.title : '');
+}
+
 function openBookingModal(carTitle = '') {
   const modal = document.getElementById('booking-modal');
   if (carTitle) {

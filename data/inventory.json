@@ -310,37 +310,6 @@
     ]
   },
   {
-    "id": "i5225",
-    "title": "Toyota RAV4 2020年",
-    "brand": "Toyota",
-    "type": "SUV",
-    "year": 2020,
-    "mileage": "13.0 萬公里 (130,000 km)",
-    "price": 59.8,
-    "engine": "2.0L (1987.cc)",
-    "power": "門市洽詢",
-    "transmission": "手自排",
-    "image": "images/cars/i5225.jpg",
-    "certified": "CarOk 認證",
-    "guarantee": "三大保證 ‧ 實車實價",
-    "tags": [
-      "實車實價",
-      "非計程車",
-      "里程保證"
-    ],
-    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
-    "inspection": [
-      {
-        "item": "車體大樑與結構骨架",
-        "status": "CarOk 認證無鈑修合格"
-      },
-      {
-        "item": "CAROK 內視鏡檢查",
-        "status": "引擎內部無積碳極乾淨"
-      }
-    ]
-  },
-  {
     "id": "i5171",
     "title": "Toyota ZACE 2001年",
     "brand": "Toyota",
@@ -383,37 +352,6 @@
     "power": "門市洽詢",
     "transmission": "手自排",
     "image": "images/cars/i5170.jpg",
-    "certified": "CarOk 認證",
-    "guarantee": "三大保證 ‧ 實車實價",
-    "tags": [
-      "實車實價",
-      "非計程車",
-      "里程保證"
-    ],
-    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
-    "inspection": [
-      {
-        "item": "車體大樑與結構骨架",
-        "status": "CarOk 認證無鈑修合格"
-      },
-      {
-        "item": "CAROK 內視鏡檢查",
-        "status": "引擎內部無積碳極乾淨"
-      }
-    ]
-  },
-  {
-    "id": "i5169",
-    "title": "Toyota WISH 2013年",
-    "brand": "Toyota",
-    "type": "SUV",
-    "year": 2013,
-    "mileage": "21.0 萬公里 (209,587 km)",
-    "price": 30.8,
-    "engine": "2.0L (1987.cc)",
-    "power": "門市洽詢",
-    "transmission": "手自排",
-    "image": "images/cars/i5169.jpg",
     "certified": "CarOk 認證",
     "guarantee": "三大保證 ‧ 實車實價",
     "tags": [

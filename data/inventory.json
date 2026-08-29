@@ -1,5 +1,129 @@
 [
   {
+    "id": "i5924",
+    "title": "Nissan TIIDA 2014年",
+    "brand": "Nissan",
+    "type": "Sedan",
+    "year": 2014,
+    "mileage": "10.7 萬公里 (107,000 km)",
+    "price": 18.8,
+    "engine": "1.6L (1598.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i5924.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i5923",
+    "title": "Volkswagen PASSAT 2007年",
+    "brand": "Volkswagen",
+    "type": "Sedan",
+    "year": 2007,
+    "mileage": "14.0 萬公里 (140,000 km)",
+    "price": 7.8,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "手自排",
+    "image": "images/cars/i5923.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i5922",
+    "title": "Honda CR-V 2005年",
+    "brand": "Honda",
+    "type": "SUV",
+    "year": 2005,
+    "mileage": "18.0 萬公里 (180,000 km)",
+    "price": 6.8,
+    "engine": "2.0L (1998.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i5922.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i5921",
+    "title": "Mitsubishi OUTLANDER 2010年",
+    "brand": "Mitsubishi",
+    "type": "SUV",
+    "year": 2010,
+    "mileage": "17.0 萬公里 (170,000 km)",
+    "price": 12.8,
+    "engine": "2.4L (2359.cc)",
+    "power": "門市洽詢",
+    "transmission": "手自排",
+    "image": "images/cars/i5921.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
     "id": "i5864",
     "title": "Mitsubishi ZINGER 2019年",
     "brand": "Mitsubishi",

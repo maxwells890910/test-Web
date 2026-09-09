@@ -1,5 +1,129 @@
 [
   {
+    "id": "i6033",
+    "title": "Toyota RAV4 2022年",
+    "brand": "Toyota",
+    "type": "SUV",
+    "year": 2022,
+    "mileage": "7.8 萬公里 (78,000 km)",
+    "price": 64.9,
+    "engine": "2.0L (1987.cc)",
+    "power": "門市洽詢",
+    "transmission": "手自排",
+    "image": "images/cars/i6033.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6032",
+    "title": "Toyota WISH 2004年",
+    "brand": "Toyota",
+    "type": "Sedan",
+    "year": 2004,
+    "mileage": "21.0 萬公里 (210,000 km)",
+    "price": 6.8,
+    "engine": "2.0L (1998.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6032.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6031",
+    "title": "Hyundai VENUE 2021年",
+    "brand": "Hyundai",
+    "type": "SUV",
+    "year": 2021,
+    "mileage": "13.0 萬公里 (130,000 km)",
+    "price": 42.8,
+    "engine": "1.6L (1598.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6031.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6030",
+    "title": "Toyota WISH 2015年",
+    "brand": "Toyota",
+    "type": "Sedan",
+    "year": 2015,
+    "mileage": "19.0 萬公里 (190,000 km)",
+    "price": 19.8,
+    "engine": "2.0L (1987.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6030.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
     "id": "i5924",
     "title": "Nissan TIIDA 2014年",
     "brand": "Nissan",

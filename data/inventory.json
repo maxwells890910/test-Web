@@ -1,5 +1,284 @@
 [
   {
+    "id": "i6338",
+    "title": "Suzuki SX4 2007年",
+    "brand": "Suzuki",
+    "type": "Sedan",
+    "year": 2007,
+    "mileage": "16.0 萬公里 (160,000 km)",
+    "price": 7.8,
+    "engine": "1.6L (1586.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6338.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6337",
+    "title": "Toyota COROLLA CROSS 2021年",
+    "brand": "Toyota",
+    "type": "SUV",
+    "year": 2021,
+    "mileage": "8.0 萬公里 (80,000 km)",
+    "price": 54.9,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6337.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6336",
+    "title": "Honda CITY 2016年",
+    "brand": "Honda",
+    "type": "Sedan",
+    "year": 2016,
+    "mileage": "13.0 萬公里 (130,000 km)",
+    "price": 24.9,
+    "engine": "0.0L (1.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6336.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6335",
+    "title": "Toyota SIENTA 2021年",
+    "brand": "Toyota",
+    "type": "SUV",
+    "year": 2021,
+    "mileage": "15.0 萬公里 (150,000 km)",
+    "price": 38.8,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6335.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6334",
+    "title": "Honda CIVIC 2016年",
+    "brand": "Honda",
+    "type": "Sedan",
+    "year": 2016,
+    "mileage": "16.0 萬公里 (160,000 km)",
+    "price": 32.8,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "手自排",
+    "image": "images/cars/i6334.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6333",
+    "title": "Benz C200 2012年",
+    "brand": "Benz",
+    "type": "Sedan",
+    "year": 2012,
+    "mileage": "9.0 萬公里 (90,000 km)",
+    "price": 26.8,
+    "engine": "1.8L (1796.cc)",
+    "power": "門市洽詢",
+    "transmission": "手自排",
+    "image": "images/cars/i6333.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6332",
+    "title": "Mitsubishi OUTLANDER 2021年",
+    "brand": "Mitsubishi",
+    "type": "SUV",
+    "year": 2021,
+    "mileage": "9.0 萬公里 (90,000 km)",
+    "price": 46.8,
+    "engine": "2.4L (2359.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6332.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6331",
+    "title": "Honda CIVIC 2013年",
+    "brand": "Honda",
+    "type": "Sedan",
+    "year": 2013,
+    "mileage": "10.0 萬公里 (100,000 km)",
+    "price": 26.8,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "手自排",
+    "image": "images/cars/i6331.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6330",
+    "title": "Toyota RAV4 2014年",
+    "brand": "Toyota",
+    "type": "SUV",
+    "year": 2014,
+    "mileage": "18.0 萬公里 (180,000 km)",
+    "price": 29.8,
+    "engine": "2.5L (2494.cc)",
+    "power": "門市洽詢",
+    "transmission": "手自排",
+    "image": "images/cars/i6330.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
     "id": "i6033",
     "title": "Toyota RAV4 2022年",
     "brand": "Toyota",

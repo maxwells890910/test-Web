@@ -1,5 +1,98 @@
 [
   {
+    "id": "i6438",
+    "title": "Toyota ALTIS 2018年",
+    "brand": "Toyota",
+    "type": "Sedan",
+    "year": 2018,
+    "mileage": "14.0 萬公里 (140,000 km)",
+    "price": 34.9,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6438.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6437",
+    "title": "Toyota COROLLA CROSS 2022年",
+    "brand": "Toyota",
+    "type": "SUV",
+    "year": 2022,
+    "mileage": "7.9 萬公里 (79,000 km)",
+    "price": 63.8,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6437.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6436",
+    "title": "Mazda MAZDA3 2017年",
+    "brand": "Mazda",
+    "type": "Sedan",
+    "year": 2017,
+    "mileage": "15.0 萬公里 (150,000 km)",
+    "price": 34.9,
+    "engine": "2.0L (1998.cc)",
+    "power": "門市洽詢",
+    "transmission": "手自排",
+    "image": "images/cars/i6436.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
     "id": "i6338",
     "title": "Suzuki SX4 2007年",
     "brand": "Suzuki",

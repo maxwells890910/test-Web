@@ -1,5 +1,67 @@
 [
   {
+    "id": "i6518",
+    "title": "Toyota ALTIS 2015年",
+    "brand": "Toyota",
+    "type": "Sedan",
+    "year": 2015,
+    "mileage": "11.0 萬公里 (110,000 km)",
+    "price": 28.8,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6518.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
+    "id": "i6516",
+    "title": "Honda CIVIC 2013年",
+    "brand": "Honda",
+    "type": "Sedan",
+    "year": 2013,
+    "mileage": "10.0 萬公里 (100,000 km)",
+    "price": 26.8,
+    "engine": "1.8L (1798.cc)",
+    "power": "門市洽詢",
+    "transmission": "自排",
+    "image": "images/cars/i6516.jpg",
+    "certified": "CarOk 認證",
+    "guarantee": "三大保證 ‧ 實車實價",
+    "tags": [
+      "實車實價",
+      "非計程車",
+      "里程保證"
+    ],
+    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
+    "inspection": [
+      {
+        "item": "車體大樑與結構骨架",
+        "status": "CarOk 認證無鈑修合格"
+      },
+      {
+        "item": "CAROK 內視鏡檢查",
+        "status": "引擎內部無積碳極乾淨"
+      }
+    ]
+  },
+  {
     "id": "i3510",
     "title": "Mitsubishi CANTER 2004年",
     "brand": "Mitsubishi",

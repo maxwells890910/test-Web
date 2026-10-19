@@ -465,68 +465,6 @@
     ]
   },
   {
-    "id": "i6330",
-    "title": "Toyota RAV4 2014年",
-    "brand": "Toyota",
-    "type": "SUV",
-    "year": 2014,
-    "mileage": "18.0 萬公里 (180,000 km)",
-    "price": 29.8,
-    "engine": "2.5L (2494.cc)",
-    "power": "門市洽詢",
-    "transmission": "手自排",
-    "image": "images/cars/i6330.jpg",
-    "certified": "CarOk 認證",
-    "guarantee": "三大保證 ‧ 實車實價",
-    "tags": [
-      "實車實價",
-      "非計程車",
-      "里程保證"
-    ],
-    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
-    "inspection": [
-      {
-        "item": "車體大樑與結構骨架",
-        "status": "CarOk 認證無鈑修合格"
-      },
-      {
-        "item": "CAROK 內視鏡檢查",
-        "status": "引擎內部無積碳極乾淨"
-      }
-    ]
-  },
-  {
-    "id": "i6033",
-    "title": "Toyota RAV4 2022年",
-    "brand": "Toyota",
-    "type": "SUV",
-    "year": 2022,
-    "mileage": "7.8 萬公里 (78,000 km)",
-    "price": 64.9,
-    "engine": "2.0L (1987.cc)",
-    "power": "門市洽詢",
-    "transmission": "手自排",
-    "image": "images/cars/i6033.jpg",
-    "certified": "CarOk 認證",
-    "guarantee": "三大保證 ‧ 實車實價",
-    "tags": [
-      "實車實價",
-      "非計程車",
-      "里程保證"
-    ],
-    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
-    "inspection": [
-      {
-        "item": "車體大樑與結構骨架",
-        "status": "CarOk 認證無鈑修合格"
-      },
-      {
-        "item": "CAROK 內視鏡檢查",
-        "status": "引擎內部無積碳極乾淨"
-      }
-    ]
-  },
-  {
     "id": "i6031",
     "title": "Hyundai VENUE 2021年",
     "brand": "Hyundai",
@@ -631,37 +569,6 @@
     "power": "門市洽詢",
     "transmission": "手自排",
     "image": "images/cars/i5923.jpg",
-    "certified": "CarOk 認證",
-    "guarantee": "三大保證 ‧ 實車實價",
-    "tags": [
-      "實車實價",
-      "非計程車",
-      "里程保證"
-    ],
-    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
-    "inspection": [
-      {
-        "item": "車體大樑與結構骨架",
-        "status": "CarOk 認證無鈑修合格"
-      },
-      {
-        "item": "CAROK 內視鏡檢查",
-        "status": "引擎內部無積碳極乾淨"
-      }
-    ]
-  },
-  {
-    "id": "i5922",
-    "title": "Honda CR-V 2005年",
-    "brand": "Honda",
-    "type": "SUV",
-    "year": 2005,
-    "mileage": "18.0 萬公里 (180,000 km)",
-    "price": 6.8,
-    "engine": "2.0L (1998.cc)",
-    "power": "門市洽詢",
-    "transmission": "自排",
-    "image": "images/cars/i5922.jpg",
     "certified": "CarOk 認證",
     "guarantee": "三大保證 ‧ 實車實價",
     "tags": [
@@ -848,37 +755,6 @@
     "power": "門市洽詢",
     "transmission": "手自排",
     "image": "images/cars/i5630.jpg",
-    "certified": "CarOk 認證",
-    "guarantee": "三大保證 ‧ 實車實價",
-    "tags": [
-      "實車實價",
-      "非計程車",
-      "里程保證"
-    ],
-    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
-    "inspection": [
-      {
-        "item": "車體大樑與結構骨架",
-        "status": "CarOk 認證無鈑修合格"
-      },
-      {
-        "item": "CAROK 內視鏡檢查",
-        "status": "引擎內部無積碳極乾淨"
-      }
-    ]
-  },
-  {
-    "id": "i5628",
-    "title": "Mitsubishi OUTLANDER 2021年",
-    "brand": "Mitsubishi",
-    "type": "SUV",
-    "year": 2021,
-    "mileage": "8.4 萬公里 (84,000 km)",
-    "price": 46.8,
-    "engine": "2.4L (2359.cc)",
-    "power": "門市洽詢",
-    "transmission": "手自排",
-    "image": "images/cars/i5628.jpg",
     "certified": "CarOk 認證",
     "guarantee": "三大保證 ‧ 實車實價",
     "tags": [
@@ -1127,37 +1003,6 @@
     "power": "門市洽詢",
     "transmission": "手自排",
     "image": "images/cars/i4422.jpg",
-    "certified": "CarOk 認證",
-    "guarantee": "三大保證 ‧ 實車實價",
-    "tags": [
-      "實車實價",
-      "非計程車",
-      "里程保證"
-    ],
-    "description": "高雄梓官力賀汽車門市現場實車展示，通過 CarOk 142 項權威檢驗與內視鏡檢查，車況優良！",
-    "inspection": [
-      {
-        "item": "車體大樑與結構骨架",
-        "status": "CarOk 認證無鈑修合格"
-      },
-      {
-        "item": "CAROK 內視鏡檢查",
-        "status": "引擎內部無積碳極乾淨"
-      }
-    ]
-  },
-  {
-    "id": "i4421",
-    "title": "Toyota RAV4 2014年",
-    "brand": "Toyota",
-    "type": "SUV",
-    "year": 2014,
-    "mileage": "18.0 萬公里 (180,000 km)",
-    "price": 29.8,
-    "engine": "2.5L (2494.cc)",
-    "power": "門市洽詢",
-    "transmission": "手自排",
-    "image": "images/cars/i4421.jpg",
     "certified": "CarOk 認證",
     "guarantee": "三大保證 ‧ 實車實價",
     "tags": [
